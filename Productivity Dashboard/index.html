@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Productivity Dashboard — Mini Notion</title>
+  <link rel="stylesheet" href="./CSS/style.css" />
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <h1>My Dashboard</h1>
+      <small id="greeting"></small>
+    </div>
+    <div class="controls">
+      <button id="themeToggle" aria-label="Toggle theme">🌙</button>
+      <button id="clearDemo" title="Reset demo data">Reset</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="sidebar" aria-label="Main navigation">
+      <button class="nav-btn active" data-view="tasks">Tasks</button>
+      <button class="nav-btn" data-view="notes">Notes</button>
+      <button class="nav-btn" data-view="reminders">Reminders</button>
+      <button class="nav-btn" data-view="stats">Stats</button>
+    </nav>
+
+    <main class="content">
+      <!-- TASKS VIEW -->
+      <section id="view-tasks" class="view">
+        <div class="card">
+          <h2>Tasks</h2>
+          <form id="taskForm" class="row">
+            <input id="taskTitle" placeholder="New task (press Enter)" required />
+            <select id="taskCategory">
+              <option value="Work">Work</option>
+              <option value="Personal">Personal</option>
+              <option value="Other">Other</option>
+            </select>
+            <button type="submit">Add</button>
+          </form>
+
+          <div class="filters">
+            <button class="task-filter active" data-filter="all">All</button>
+            <button class="task-filter" data-filter="pending">Pending</button>
+            <button class="task-filter" data-filter="done">Done</button>
+          </div>
+
+          <div class="progress-wrap">
+            <div class="progress-bar">
+              <div id="progressFill"></div>
+            </div>
+            <small id="progressText">0%</small>
+          </div>
+
+          <ul id="taskList" class="list" aria-live="polite"></ul>
+        </div>
+      </section>
+
+      <!-- NOTES VIEW -->
+      <section id="view-notes" class="view hidden">
+        <div class="card">
+          <h2>Notes</h2>
+          <div class="notes-controls">
+            <button id="addNoteBtn">New Note</button>
+          </div>
+          <div id="notesArea" class="notes-area"></div>
+        </div>
+      </section>
+
+      <!-- REMINDERS VIEW -->
+      <section id="view-reminders" class="view hidden">
+        <div class="card">
+          <h2>Reminders</h2>
+          <form id="reminderForm" class="row">
+            <input id="remTitle" placeholder="Reminder title" required />
+            <input id="remDate" type="datetime-local" required />
+            <button type="submit">Add</button>
+          </form>
+          <ul id="remList" class="list"></ul>
+        </div>
+      </section>
+
+      <!-- STATS VIEW -->
+      <section id="view-stats" class="view hidden">
+        <div class="card">
+          <h2>Stats</h2>
+          <canvas id="statsCanvas" width="600" height="220"></canvas>
+          <div class="stat-nums">
+            <div>Tasks: <span id="statTotal">0</span></div>
+            <div>Completed: <span id="statDone">0</span></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Simple in-app toast for reminders -->
+  <div id="toast" class="toast hidden" role="status" aria-live="assertive"></div>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>
