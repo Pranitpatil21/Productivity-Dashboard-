@@ -2,7 +2,7 @@
 const K_TASKS = 'pd_tasks';
 const K_NOTES = 'pd_notes';
 const K_REMS = 'pd_rems';
-const K_THEME = 'pd_theme';
+const K_THEME = 'pd_theme'; 
 
 // --- DOM refs ---
 const taskForm = document.getElementById('taskForm');
