@@ -14,7 +14,7 @@ const progressFill = document.getElementById('progressFill');
 const progressText = document.getElementById('progressText');
 
 const addNoteBtn = document.getElementById('addNoteBtn');
-const notesArea = document.getElementById('notesArea');
+const notesArea = document.getElementById('notesArea'); 
 
 const reminderForm = document.getElementById('reminderForm');
 const remTitle = document.getElementById('remTitle');
